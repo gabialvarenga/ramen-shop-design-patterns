@@ -1,0 +1,133 @@
+<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>360</x><y>220</y><w>125</w><h>50</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Pedido
+--
+
+--
++ calcularPrecoTotal(): double
++ exibirDetalhes(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>215</y><w>125</w><h>70</h></coordinates><panel_attributes>PedidosSingleton
+--
+- INSTANCE: PedidosSingleton
+ - pedidosEmFila: Queue&lt;Pedido&gt;
+ - pedidosConcluidos: List&lt;Pedido&gt;
+--
++ getInstance(): PedidosSingleton
++ adicionarPedido(pedido: Pedido): void
++ exibirFila(): void
++ exibirBalanco(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>70</y><w>185</w><h>45</h></coordinates><panel_attributes>BebidaFactory
+--
+
+--
++ criarBebida(tipo: String, pedido: Pedido): BebidaDecorator</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>170</y><w>85</w><h>45</h></coordinates><panel_attributes>ProteinaExtra
+--
+- PRECO: double = 4.00
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>115</y><w>85</w><h>40</h></coordinates><panel_attributes>Chilli
+--
+- PRECO: double = 2.50
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>60</y><w>85</w><h>40</h></coordinates><panel_attributes>CremeAlho
+--
+- PRECO: double = 1.50
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>175</x><y>220</y><w>125</w><h>60</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+AcrescimoDecorator
+--
++ pedido: Pedido
+--
++ AcréscimoDecorator(pedido: Pedido) 
++ exibirDetalhes(): String
++ calcularTotal(): double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>350</y><w>125</w><h>55</h></coordinates><panel_attributes>RamenPequeno
+--
+- PRECO_BASE: double = 9.90
+- proteina: String
+- PRECO_PROTEINA: Map&lt;String, double&gt;
+
+--
+ 
+group=group-4</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>225</y><w>85</w><h>45</h></coordinates><panel_attributes>Croutons
+--
+- PRECO: double = 2.00
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>285</y><w>85</w><h>45</h></coordinates><panel_attributes>Tofu
+--
+- PRECO: double = 2.70
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>340</y><w>85</w><h>45</h></coordinates><panel_attributes>Shitake
+--
+- PRECO: double = 6.90
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+
+group=group-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>70</y><w>35</w><h>75</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;130;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>130</y><w>35</w><h>65</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;110;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>185</y><w>35</w><h>55</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;90;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>170</y><w>35</w><h>85</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;10;50;150;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>240</y><w>50</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>240</y><w>35</w><h>75</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;130;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>295</y><w>35</w><h>70</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;120;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>350</y><w>35</w><h>20</h></coordinates><panel_attributes>lt=-
+group=group-2</panel_attributes><additional_attributes>50;10;50;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>415</x><y>330</y><w>165</w><h>30</h></coordinates><panel_attributes>lt=.
+group=group-4</panel_attributes><additional_attributes>10;40;10;10;310;10;310;40</additional_attributes></element><element><id>Relation</id><coordinates><x>415</x><y>265</y><w>15</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>35</y><w>80</w><h>35</h></coordinates><panel_attributes>Kocha
+--
+- PRECO: double = 0.00
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>365</x><y>350</y><w>125</w><h>55</h></coordinates><panel_attributes>RamenMedio
+--
+- PRECO_BASE: double = 12.90
+- proteina: String
+- PRECO_PROTEINA: Map&lt;String, double&gt;
+
+--
+ 
+group=group-4</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>515</x><y>350</y><w>125</w><h>55</h></coordinates><panel_attributes>RamenGrande
+--
+- PRECO_BASE: double = 15.90
+- proteina: String
+- PRECO_PROTEINA: Map&lt;String, double&gt;
+
+--
+ 
+group=group-4</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>285</x><y>330</y><w>160</w><h>30</h></coordinates><panel_attributes>lt=.
+group=group-4</panel_attributes><additional_attributes>300;10;10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>295</x><y>240</y><w>75</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>155</y><w>185</w><h>45</h></coordinates><panel_attributes>RamenFactory
+--
+
+--
++criarRamen(tipoTamanho: String, proteina: String): Ramen
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>140</y><w>80</w><h>35</h></coordinates><panel_attributes>Ocha
+--
+- PRECO: double = 3.90
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>225</x><y>90</y><w>80</w><h>35</h></coordinates><panel_attributes>Refrigerante
+--
+- PRECO: double = 5.90
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>715</x><y>230</y><w>70</w><h>45</h></coordinates><panel_attributes>RelatorioBalanco
+--
+
+--
++ exibirBalanci(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>125</y><w>125</w><h>50</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+BebidaDecorator
+--
++ pedido: Pedido
+--
++ exibirDetalhes(): String
++ calcularTotal(): double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>415</x><y>170</y><w>15</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>40</y><w>25</w><h>75</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;130;30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>100</y><w>25</w><h>70</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;120;30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>130</y><w>25</w><h>40</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;10;30;60;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>155</y><w>60</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>110</y><w>35</w><h>55</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;90;50;90;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>170</y><w>15</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>295</x><y>225</y><w>75</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>255</y><w>70</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>245</y><w>65</w><h>15</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>170</y><w>70</w><h>70</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;120;90;120;90;10;120;10</additional_attributes></element></diagram>
