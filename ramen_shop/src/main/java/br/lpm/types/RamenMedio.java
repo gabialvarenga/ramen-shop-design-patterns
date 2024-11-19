@@ -1,0 +1,10 @@
+package br.lpm.types;
+
+import br.lpm.core.Ramen;
+
+public class RamenMedio extends Ramen {
+    public RamenMedio(String proteina){
+        super(proteina);
+        this.setPrecoBase(12.90);
+    }
+}
