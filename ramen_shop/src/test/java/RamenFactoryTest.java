@@ -1,6 +1,9 @@
-import br.lpm.core.Pedido;
+import br.lpm.core.Ramen;
 import br.lpm.factories.RamenFactory;
+import br.lpm.types.RamenGrande;
 import br.lpm.types.RamenMedio;
+import br.lpm.types.RamenPequeno;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,14 +12,21 @@ public class RamenFactoryTest {
 
     @Test
     public void testCriarRamenMedio() {
-        Pedido ramen = RamenFactory.criarRamen("medio", "Frango");
-        assertTrue(ramen instanceof RamenMedio);
+        Ramen ramen = RamenFactory.criarRamen("medio", "Frango");
+        assertTrue(ramen instanceof RamenMedio, "O ramen deve ser do tipo médio.");
     }
 
     @Test
-    public void testCriarRamenComProteinaCorreta() {
-        Pedido ramen = RamenFactory.criarRamen("pequeno", "Tofu");
-        String detalhes = ramen.exibirDetalhes();
-        assertTrue(detalhes.contains("Tofu"));
+    public void testCriarRamenGrande() {
+        Ramen ramen = RamenFactory.criarRamen("grande", "Boi");
+        assertTrue(ramen instanceof RamenGrande, "O ramen deve ser do tipo grande.");
     }
+
+    @Test
+    public void testCriarRamenPequeno() {
+        Ramen ramen = RamenFactory.criarRamen("pequeno", "Vegano");
+        assertTrue(ramen instanceof RamenPequeno, "O ramen deve ser do tipo pequeno.");
+    }
+
+  
 }

@@ -16,7 +16,7 @@ public class AcrescimosTest {
         ramen = new AcrescimoCremeAlho(ramen);
 
         double precoTotal = ramen.calcularPrecoTotal();
-        assertEquals(14.4, precoTotal, 0.01);
+        assertEquals(14.4, precoTotal, 0.01, "O preço total com creme de alho deve ser 14.4");
     }
 
     @Test
@@ -27,6 +27,7 @@ public class AcrescimosTest {
         ramen = new AcrescimoCroutons(ramen);
 
         double precoTotal = ramen.calcularPrecoTotal();
-        assertEquals(27.8, precoTotal, 0.01);
+        assertEquals(27.8, precoTotal, 0.01, 
+        "O preço total com creme de alho, chilli e croutons deve ser 27.8");
     }
 }

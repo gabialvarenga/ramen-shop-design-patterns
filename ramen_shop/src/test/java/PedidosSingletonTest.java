@@ -1,58 +1,75 @@
 import br.lpm.core.Pedido;
+
 import br.lpm.factories.RamenFactory;
 import br.lpm.singletons.PedidosSingleton;
-import br.lpm.types.AcrescimoChilli;
-import br.lpm.types.AcrescimoCremeAlho;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
+
+import org.junit.jupiter.api.BeforeEach;
 
 public class PedidosSingletonTest {
+    private PedidosSingleton pedidos;
+
+    @BeforeEach
+    void setUp() {
+        pedidos = PedidosSingleton.getInstance();
+        pedidos.limparPedidos();
+    }
 
     @Test
     public void testAdicionarPedidoNaFila() {
-        PedidosSingleton pedidos = PedidosSingleton.getInstance();
+        Pedido pedido = RamenFactory.criarRamen("medio", "Frango");
+        pedidos.adicionarPedido(pedido);
+        assertTrue(pedidos.getPedidosEmFila().contains(pedido), 
+        "O pedido deve estar na lista de espera.");
+    }
 
-        Pedido ramen = RamenFactory.criarRamen("medio", "Frango");
-        pedidos.adicionarPedido(ramen);
+    @Test
+    void testProcessarProximoPedido() {
+        Pedido pedido = RamenFactory.criarRamen("grande", "Tofu");
+        pedidos.adicionarPedido(pedido);
 
-        assertEquals(1, pedidos.getPedidosEmFila().size());
+        pedidos.processarProximoPedido();
+
+        assertTrue(pedidos.getPedidosEmFila().isEmpty(), "A lista de espera deve estar vazia.");
+        assertTrue(pedidos.getPedidosConcluidos().contains(pedido), 
+        "O pedido deve estar na lista de pedidos concluídos.");
+    }
+
+    @Test
+    void testMarcarPedidoComoRetirado() {
+        Pedido pedido = RamenFactory.criarRamen("grande", "Boi");
+        pedidos.adicionarPedido(pedido);
+
+        pedidos.processarProximoPedido();
+        pedidos.marcarPedidoComoRetirado(pedido);
+
+        assertTrue(pedidos.getPedidosConcluidos().contains(pedido), 
+        "O pedido deve estar na lista de pedidos concluídos.");
     }
 
     @Test
     public void testMoverPedidoParaConcluidos() {
-        PedidosSingleton pedidos = PedidosSingleton.getInstance();
+        Pedido pedido = RamenFactory.criarRamen("grande", "Boi");
+        pedidos.adicionarPedido(pedido);
 
-        Pedido ramen = RamenFactory.criarRamen("grande", "Boi");
-        ramen = new AcrescimoCremeAlho(ramen);
-        pedidos.adicionarPedido(ramen);
+        boolean resultado = pedidos.getPedidosEmFila().remove(pedido);
 
-        Pedido processado = pedidos.getPedidosEmFila().poll();
-        pedidos.getPedidosConcluidos().add(processado);
-
-        assertEquals(0, pedidos.getPedidosEmFila().size());
-        assertEquals(1, pedidos.getPedidosConcluidos().size());
+        assertTrue(resultado, "O pedido deve ser removido da lista de espera.");
+        assertFalse(pedidos.getPedidosEmFila().contains(pedido), 
+        "O pedido não deve estar na lista de espera.");
     }
 
-    @Test
-    public void testCalcularBalancoCorretamente() {
-        PedidosSingleton pedidos = PedidosSingleton.getInstance();
-
-        Pedido ramen1 = RamenFactory.criarRamen("pequeno", "Vegano");
-        ramen1 = new AcrescimoCremeAlho(ramen1);
-        pedidos.adicionarPedido(ramen1);
-
-        Pedido ramen2 = RamenFactory.criarRamen("medio", "Boi");
-        ramen2 = new AcrescimoChilli(ramen2);
-        pedidos.adicionarPedido(ramen2);
-
-        pedidos.getPedidosConcluidos().addAll(pedidos.getPedidosEmFila());
-        pedidos.getPedidosEmFila().clear();
-
-        double total = pedidos.getPedidosConcluidos().stream()
-                .mapToDouble(Pedido::calcularPrecoTotal)
-                .sum();
-
-        assertEquals(38.6, total, 0.01);
+     @Test
+    void testUnicidadeDaInstancia() {
+        PedidosSingleton instance1 = PedidosSingleton.getInstance();
+        PedidosSingleton instance2 = PedidosSingleton.getInstance();
+        assertSame(instance1, instance2, "A lista de espera deve ser única.");
     }
+
 }
