@@ -4,6 +4,7 @@ import java.util.Map;
 
 public abstract class Ramen implements Pedido{
     private double precoBase; 
+    private String tamanho;
     private String proteina;
     private double precoProteina;
     private static final Map<String, Double> PRECO_PROTEINA = Map.of(
@@ -12,15 +13,16 @@ public abstract class Ramen implements Pedido{
         "Boi", 7.90
     );
 
-    public Ramen(String proteina) {
+    public Ramen(String proteina, String tamanho) {
         this.proteina = proteina;
         this.precoProteina = PRECO_PROTEINA.getOrDefault(proteina, 0.0);
+        this.tamanho = tamanho;
         //O método getOrDefault() é usado para obter o valor associado à chave proteina no mapa PRECO_PROTEINA.
     }
 
     @Override
     public String exibirDetalhes() {
-        return "Ramen com " + proteina + ", preço base: " + precoBase;
+        return "Pedido: Ramen " + tamanho + ", Proteina: " + proteina ;
     }
 
     @Override

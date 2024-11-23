@@ -11,7 +11,7 @@ public abstract class AcrescimoDecorator implements Pedido{
 
     @Override
     public String exibirDetalhes() {
-        return pedido.exibirDetalhes();
+        return pedido.exibirDetalhes() + "Acréscimos" ;
     }
 
     @Override
