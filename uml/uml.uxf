@@ -95,7 +95,7 @@ group=group-2</panel_attributes><additional_attributes>50;10;50;20;10;20</additi
 --
 
 --
-+ exibirBalanci(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>190</y><w>250</w><h>90</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
++ exibirBalancoFinal(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>190</y><w>250</w><h>90</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
 BebidaDecorator
 --
 + pedido: Pedido
