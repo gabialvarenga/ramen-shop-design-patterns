@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
 import br.lpm.types.AcrescimoChilli;
-import br.lpm.types.BebidaKocha;
+import br.lpm.types.AcrescimoKocha;
 
 public class PedidoTest {
     private Pedido pedido;
@@ -15,7 +15,7 @@ public class PedidoTest {
     public void setup() {
        pedido = RamenFactory.criarRamen("pequeno", "Vegano");
        pedido = new AcrescimoChilli(pedido);
-       pedido = new BebidaKocha(pedido);
+       pedido = new AcrescimoKocha(pedido);
     }
 
     @Test
