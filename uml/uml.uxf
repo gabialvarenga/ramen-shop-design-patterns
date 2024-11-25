@@ -1,16 +1,17 @@
-<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>504</x><y>308</y><w>175</w><h>70</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>504</x><y>308</y><w>175</w><h>70</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Pedido
 --
 
 --
 + calcularPrecoTotal(): double
-+ exibirDetalhes(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>742</x><y>301</y><w>224</w><h>175</h></coordinates><panel_attributes>&lt;&lt;singleton&gt;&gt;
++ exibirDetalhes(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>742</x><y>301</y><w>231</w><h>196</h></coordinates><panel_attributes>&lt;&lt;singleton&gt;&gt;
  PedidosSingleton
 --
 - INSTANCE: PedidosSingleton [static final]
 - pedidosEmFila: Queue&lt;Pedido&gt;
 - pedidosConcluidos: List&lt;Pedido&gt;
--  
+- proximoNumero: int              
+- notifier: PedidoNotifier  
 --
 + getInstance(): PedidosSingleton [static]
 + adicionarPedido(pedido: Pedido): void
@@ -18,9 +19,10 @@ Pedido
 + processarProximoPedido(): void
 + processarPedidos(): void
 + marcarPedidoComoRetirado(pedido: Pedido): void
-+ getPedidosEmFila(): Queue&lt;Pedido&gt;
-+ getPedidosConcluidos(): List&lt;Pedido&gt;
-- limparPedidos(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>105</y><w>245</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
+- limparPedidos(): void
+- realizarProcessamento(pedido: Pedido): void   
+- removerDaFilaParaConcluido(pedido: Pedido): boolean 
+- PedidoComNumero: Pedido  </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>105</y><w>245</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
 BebidaFactory
 --
 
@@ -97,7 +99,7 @@ BebidaKocha
 + BebidaKocha(pedido: Pedido)
 + exibirDetalhes(): String
 + calcularPrecoTotal(): double
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>336</y><w>112</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>735</x><y>490</y><w>245</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>336</y><w>112</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>735</x><y>511</y><w>245</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt;
 RamenFactory
 --
 
@@ -121,7 +123,7 @@ BebidaRefrigerante
 + exibirDetalhes(): String
 + calcularPrecoTotal(): double
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1071</x><y>322</y><w>217</w><h>70</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1029</x><y>385</y><w>217</w><h>70</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
 BalancoFinal
 --
 - pedidosSingleton: PedidosSingleton
@@ -138,7 +140,7 @@ BebidaDecorator
 + getPedido(): Pedido
 + setPedido(Pedido pedido)
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>581</x><y>182</y><w>21</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>413</x><y>7</y><w>42</w><h>147</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>40;190;40;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>133</y><w>35</w><h>133</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;170;30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>182</y><w>35</w><h>84</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;10;30;100;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>133</y><w>84</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>315</y><w>112</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>357</y><w>84</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>672</y><w>147</w><h>56</h></coordinates><panel_attributes>RamenPequeno
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>581</x><y>182</y><w>21</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>413</x><y>7</y><w>42</w><h>147</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>40;190;40;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>133</y><w>35</w><h>133</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;170;30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>182</y><w>35</w><h>84</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>30;10;30;100;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>133</y><w>84</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>315</y><w>112</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>329</y><w>84</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>357</x><y>672</y><w>147</w><h>56</h></coordinates><panel_attributes>RamenPequeno
 --
 
 --
@@ -168,4 +170,14 @@ Ramen
 + exibirDetalhes(): String
 + calcularPrecoTotal(): double
 + setPrecoBase(preco: double): void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>182</y><w>21</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>581</x><y>588</y><w>21</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>959</x><y>357</y><w>126</w><h>21</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>126</y><w>98</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>525</y><w>56</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>182</y><w>21</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>581</x><y>588</y><w>21</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>966</x><y>413</y><w>77</w><h>21</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>126</y><w>98</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>546</y><w>56</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>749</x><y>196</y><w>210</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
+PedidoFormatter
+--
+
+--
++ formatarPedido(pedido: Pedido): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1029</x><y>287</y><w>217</w><h>63</h></coordinates><panel_attributes>&lt;&lt;class&gt;&gt; 
+PedidoNotifier
+--
+
+--
+ + notificarCliente(pedido: Pedido): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>966</x><y>336</y><w>77</w><h>21</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>903</x><y>252</y><w>21</w><h>63</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element></diagram>
