@@ -12,16 +12,11 @@ public class AcrescimoTofu extends AcrescimoDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Tofu";
-    }
-
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
+        sb.append(super.exibirDetalhes());
+        sb.append(", Tofu");
         return sb.toString();
-    }*/
+    }
 
     @Override
     public double calcularPrecoTotal() {

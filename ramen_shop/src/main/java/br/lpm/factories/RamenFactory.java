@@ -1,7 +1,6 @@
 package br.lpm.factories;
 
 import br.lpm.core.Ramen;
-import br.lpm.singletons.PedidosSingleton;
 import br.lpm.types.RamenGrande;
 import br.lpm.types.RamenMedio;
 import br.lpm.types.RamenPequeno;
@@ -14,10 +13,5 @@ public class RamenFactory {
             case "grande" -> new RamenGrande(proteina);
             default -> throw new IllegalArgumentException("Tipo de ramen inválido");
         };
-    }
-
-    public static PedidosSingleton criarPedidosSingleton() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'criarPedidosSingleton'");
     }
 }

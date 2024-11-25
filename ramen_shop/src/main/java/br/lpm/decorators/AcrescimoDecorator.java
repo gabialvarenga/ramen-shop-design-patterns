@@ -11,9 +11,9 @@ public abstract class AcrescimoDecorator implements Pedido{
 
     @Override
     public String exibirDetalhes() {
-        return pedido.exibirDetalhes() + "Acréscimos" ;
+        return getPedido().exibirDetalhes();
     }
-
+    
     @Override
     public double calcularPrecoTotal() {
         return pedido.calcularPrecoTotal();

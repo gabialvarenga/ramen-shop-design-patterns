@@ -12,16 +12,11 @@ public class BebidaRefrigerante extends BebidaDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Refrigerante";
-    }
-
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
+        sb.append(super.exibirDetalhes());
+        sb.append(", Refrigerante");
         return sb.toString();
-    }*/
+    }
 
     @Override
     public double calcularPrecoTotal() {

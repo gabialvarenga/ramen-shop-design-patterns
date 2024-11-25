@@ -12,16 +12,8 @@ public class AcrescimoChilli extends AcrescimoDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Chilli";
+        return getPedido().exibirDetalhes() + " ,Chilli";
     }
-
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
-        return sb.toString();
-    }*/
 
     @Override
     public double calcularPrecoTotal() {

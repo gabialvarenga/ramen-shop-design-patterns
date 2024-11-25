@@ -1,8 +1,8 @@
 package br.lpm.main;
 
+import br.lpm.core.BalancoFinal;
 import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
-import br.lpm.service.BalancoFinal;
 import br.lpm.singletons.PedidosSingleton;
 import br.lpm.types.AcrescimoChilli;
 import br.lpm.types.AcrescimoCremeAlho;
@@ -27,16 +27,16 @@ public class Main {
         pedido2 = new AcrescimoChilli(pedido2);
         pedido2 = new AcrescimoProteinaExtra(pedido2);
 
-        Pedido pedido3 = RamenFactory.criarRamen("pequeno", "Tofu");
+        Pedido pedido3 = RamenFactory.criarRamen("pequeno", "Vegano");
         pedido3 = new AcrescimoShitake(pedido3);
 
         // Adiciona os pedidos
+        System.out.println("\n=== Pedidos Adicionados ===");
         pedidos.adicionarPedido(pedido1);
         pedidos.adicionarPedido(pedido2);
         pedidos.adicionarPedido(pedido3);
 
         // Exibe a fila de pedidos
-        System.out.println("=== Fila de pedidos ===");
         pedidos.exibirFila();
 
         // Processa o primeiro pedido

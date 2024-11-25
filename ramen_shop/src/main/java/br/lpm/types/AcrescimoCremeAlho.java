@@ -13,17 +13,14 @@ public class AcrescimoCremeAlho extends AcrescimoDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Creme de Alho";
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.exibirDetalhes());
+        sb.append(", Creme de Alho");
+        return sb.toString();
     }
 
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
-        return sb.toString();
-    }*/
 
+ 
     @Override
     public double calcularPrecoTotal() {
         return getPedido().calcularPrecoTotal() + PRECO;

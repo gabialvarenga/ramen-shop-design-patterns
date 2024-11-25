@@ -1,6 +1,5 @@
-package br.lpm.service;
+package br.lpm.core;
 
-import br.lpm.core.Pedido;
 import br.lpm.singletons.PedidosSingleton;
 
 public class BalancoFinal {

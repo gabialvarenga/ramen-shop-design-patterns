@@ -12,16 +12,11 @@ public class BebidaKocha extends BebidaDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Bebida Ko-Cha";
-    }
-
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
+        sb.append(super.exibirDetalhes());
+        sb.append(", Kocha");
         return sb.toString();
-    }*/
+    }
 
     @Override
     public double calcularPrecoTotal() {

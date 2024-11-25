@@ -12,16 +12,12 @@ public class AcrescimoCroutons extends AcrescimoDecorator{
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + ", Croutons";
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.exibirDetalhes());
+        sb.append(", Croutons");
+        return sb.toString();
     }
 
-    //VOLTAR AQUI
-    /*@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getPedido()).append(this.cnpj);
-        return sb.toString();
-    }*/
 
     @Override
     public double calcularPrecoTotal() {
