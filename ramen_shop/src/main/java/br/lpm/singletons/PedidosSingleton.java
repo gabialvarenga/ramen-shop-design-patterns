@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;  
 import java.util.List;  
 import java.util.Queue;  
+
 import br.lpm.core.Pedido;  
-import br.lpm.utils.PedidoFormatter;   
-import br.lpm.utils.PedidoNotifier;
+import br.lpm.utils.PedidoFormatter;  
+import br.lpm.utils.PedidoNotifier;  
 
 public class PedidosSingleton {  
     private static final PedidosSingleton INSTANCE = new PedidosSingleton();  
     private final Queue<Pedido> pedidosEmFila = new LinkedList<>();  
     private final List<Pedido> pedidosConcluidos;  
-    private static int proximoNumero = 1;  
-    private final PedidoNotifier notifier = new PedidoNotifier();  
+    private PedidoNotifier notifier = new PedidoNotifier();   
+    private int contadorPedidos = 0; 
 
     private PedidosSingleton() {  
         pedidosConcluidos = new ArrayList<>();  
@@ -23,14 +24,10 @@ public class PedidosSingleton {
         return INSTANCE;  
     }  
 
-    public List<Pedido> getPedidosConcluidos() {  
-        return pedidosConcluidos;  
-    }  
-
     public void adicionarPedido(Pedido pedido) {  
-        Pedido pedidoComNumero = new PedidoComNumero(pedido, proximoNumero++);  
-        pedidosEmFila.add(pedidoComNumero);  
-        System.out.println(PedidoFormatter.formatarPedido(pedidoComNumero));  
+        contadorPedidos++; 
+        System.out.println("Pedido #" + contadorPedidos + " adicionado: " + PedidoFormatter.formatarPedido(pedido));  
+        pedidosEmFila.add(pedido);  
     }  
 
     public void exibirFila() {  
@@ -38,35 +35,43 @@ public class PedidosSingleton {
         if (pedidosEmFila.isEmpty()) {  
             System.out.println("Nenhum pedido na fila.");  
         } else {  
-            pedidosEmFila.forEach(pedido -> System.out.println(PedidoFormatter.formatarPedido(pedido)));  
+            int numeroPedido = 1; 
+            for (Pedido pedido : pedidosEmFila) {  
+                System.out.println("Pedido #" + numeroPedido + ": " + 
+                PedidoFormatter.formatarPedido(pedido) + " | Preço total: R$ "  
+                        + String.format("%.2f", pedido.calcularPrecoTotal()));  
+                numeroPedido++;  
+            }  
         }  
-    }  
+    }   
 
     public void processarProximoPedido() {  
         Pedido pedido = pedidosEmFila.poll();  
         if (pedido != null) {  
-            realizarProcessamento(pedido);  
+            pedidosConcluidos.add(pedido);  
+            System.out.println("\n=== Preparando o Pedido ===");  
+            System.out.println(PedidoFormatter.formatarPedido(pedido));  
+            notifier.notificarCliente(pedido); 
         } else {  
             System.out.println("Nenhum pedido na fila.");  
         }  
-    }  
-
-    private void realizarProcessamento(Pedido pedido) {  
-        pedidosConcluidos.add(pedido);  
-        System.out.println("\n=== Preparando o Pedido ===");  
-        System.out.println(PedidoFormatter.formatarPedido(pedido));  
-        notifier.notificarCliente(pedido);  
-    }  
+    }      
 
     public void marcarPedidoComoRetirado(Pedido pedido) {  
         if (pedidosConcluidos.contains(pedido)) {  
-            System.out.println("\n=== Pedido Já Retirado ===");  
-            System.out.println(pedido.exibirDetalhes());  
+            System.out.println("\nPedido já retirado: " + PedidoFormatter.formatarPedido(pedido));  
         } else if (removerDaFilaParaConcluido(pedido)) {  
-            System.out.println("\n=== Pedido Marcado como Retirado ===");  
-            System.out.println(pedido.exibirDetalhes());  
+            System.out.println("\nPedido marcado como retirado: " + PedidoFormatter.formatarPedido(pedido));  
         } else {  
             System.out.println("Pedido não encontrado na fila de espera.");  
+        }  
+    }  
+
+    public void processarPedidos() {  
+        while (!pedidosEmFila.isEmpty()) {  
+            Pedido pedido = pedidosEmFila.poll();  
+            pedidosConcluidos.add(pedido);  
+            System.out.println("\nPedido processado: " + PedidoFormatter.formatarPedido(pedido));  
         }  
     }  
 
@@ -78,36 +83,12 @@ public class PedidosSingleton {
         return false;  
     }  
 
-    public void processarPedidos() {  
-        System.out.println("\n=== Processando Pedidos ===");  
-        while (!pedidosEmFila.isEmpty()) {  
-            Pedido pedido = pedidosEmFila.poll();  
-            realizarProcessamento(pedido);  
-        }  
-    }  
-
-    private static class PedidoComNumero implements Pedido {  
-        private final Pedido pedidoOriginal;  
-        private final int numero;  
-
-        public PedidoComNumero(Pedido pedidoOriginal, int numero) {  
-            this.pedidoOriginal = pedidoOriginal;  
-            this.numero = numero;  
-        }  
-
-        @Override  
-        public String exibirDetalhes() {  
-            return "Pedido #" + numero + ": " + pedidoOriginal.exibirDetalhes();  
-        }  
-
-        @Override  
-        public double calcularPrecoTotal() {  
-            return pedidoOriginal.calcularPrecoTotal(); // Supondo que a implementação original tenha uma implementação  
-        }  
-    }  
-
     public Queue<Pedido> getPedidosEmFila() {  
         return pedidosEmFila;  
+    }  
+
+    public List<Pedido> getPedidosConcluidos() {  
+        return pedidosConcluidos;  
     }  
 
     public void limparPedidos() {  
@@ -115,4 +96,4 @@ public class PedidosSingleton {
         System.out.println("\n=== Pedidos Limpos ===");  
         System.out.println("Todos os pedidos concluídos foram removidos.");  
     }  
-}
+}  

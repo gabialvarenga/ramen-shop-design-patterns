@@ -21,14 +21,13 @@ public class PedidosSingletonTest {
         pedidos.limparPedidos();
     }
 
-    @Test
-    public void testAdicionarPedidoNaFila() {
-        Pedido pedido = RamenFactory.criarRamen("medio", "Frango");
-        pedidos.adicionarPedido(pedido);
-        assertTrue(pedidos.getPedidosEmFila().contains(pedido), 
-        "O pedido deve estar na lista de espera.");
+    @Test  
+    public void testAdicionarPedidoNaFila() {  
+        Pedido pedido = RamenFactory.criarRamen("medio", "Frango");  
+        pedidos.adicionarPedido(pedido);  
+        assertTrue(pedidos.getPedidosEmFila().contains(pedido),   
+        "O pedido deve estar na lista de espera.");  
     }
-
     @Test
     void testProcessarProximoPedido() {
         Pedido pedido = RamenFactory.criarRamen("grande", "Tofu");

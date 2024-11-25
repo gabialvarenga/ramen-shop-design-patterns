@@ -12,7 +12,7 @@ public class AcrescimoChilli extends AcrescimoDecorator {
 
     @Override
     public String exibirDetalhes() {
-        return getPedido().exibirDetalhes() + " ,Chilli";
+        return getPedido().exibirDetalhes() + " , Chilli";
     }
 
     @Override
