@@ -3,10 +3,10 @@ package br.lpm.types;
 import br.lpm.core.Pedido;
 import br.lpm.decorators.BebidaDecorator;
 
-public class BebidaKocha extends BebidaDecorator {
-     private static final double PRECO = 0.00;
+public class AcrescimoOcha extends BebidaDecorator {
+     private static final double PRECO = 3.90;
 
-    public BebidaKocha(Pedido pedido) {
+    public AcrescimoOcha(Pedido pedido) {
         super(pedido);
     }
 
@@ -14,7 +14,7 @@ public class BebidaKocha extends BebidaDecorator {
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Kocha");
+        sb.append(" O-cha, ");
         return sb.toString();
     }
 

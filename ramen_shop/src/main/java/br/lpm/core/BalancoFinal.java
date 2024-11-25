@@ -18,7 +18,7 @@ public class BalancoFinal {
         double ticketMedio = quantidadePedidos > 0 ? receitaTotal / quantidadePedidos : 0;
 
         System.out.println("Quantidade de pedidos: " + quantidadePedidos);
-        System.out.println("Receita total: R$ " + receitaTotal);
+        System.out.println("Receita total: R$ " + String.format("%.2f", receitaTotal));
         System.out.println("Ticket médio: R$ " + String.format("%.2f", ticketMedio));
     }
 }

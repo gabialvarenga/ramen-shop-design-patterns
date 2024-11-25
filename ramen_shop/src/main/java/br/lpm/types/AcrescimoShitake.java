@@ -14,7 +14,7 @@ public class AcrescimoShitake extends AcrescimoDecorator {
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Shitake");
+        sb.append(" Shitake, ");
         return sb.toString();
     }
     @Override

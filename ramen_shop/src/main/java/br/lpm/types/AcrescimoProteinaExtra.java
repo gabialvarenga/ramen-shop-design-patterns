@@ -14,7 +14,7 @@ public class AcrescimoProteinaExtra extends AcrescimoDecorator {
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Proteína Extra");
+        sb.append(" Proteína Extra, ");
         return sb.toString();
     }
 

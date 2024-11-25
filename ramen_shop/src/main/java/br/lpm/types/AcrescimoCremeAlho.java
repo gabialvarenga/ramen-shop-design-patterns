@@ -15,7 +15,7 @@ public class AcrescimoCremeAlho extends AcrescimoDecorator {
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Creme de Alho");
+        sb.append(" Creme de Alho, ");
         return sb.toString();
     }
 

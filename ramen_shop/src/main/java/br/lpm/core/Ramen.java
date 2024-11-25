@@ -29,13 +29,7 @@ public abstract class Ramen implements Pedido {
     @Override
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Ramen ").append(tamanho).append(", Proteina: ").append(proteina);
-        if (pedido != null) {
-            sb.append(" | Acréscimos: ");
-            
-        } else {
-            sb.append("| Acréscimos: ").append(pedido.exibirDetalhes());
-        }
+        sb.append("Ramen ").append(tamanho).append(", Proteina: ").append(proteina).append(" | ");
 
         return sb.toString();
     }

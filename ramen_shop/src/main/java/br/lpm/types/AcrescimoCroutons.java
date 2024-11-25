@@ -14,7 +14,7 @@ public class AcrescimoCroutons extends AcrescimoDecorator{
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Croutons");
+        sb.append(" Croutons, ");
         return sb.toString();
     }
 

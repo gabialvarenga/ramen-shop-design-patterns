@@ -14,7 +14,7 @@ public class AcrescimoTofu extends AcrescimoDecorator {
     public String exibirDetalhes() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.exibirDetalhes());
-        sb.append(", Tofu");
+        sb.append(" Tofu, ");
         return sb.toString();
     }
 
