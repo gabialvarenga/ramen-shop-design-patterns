@@ -1,6 +1,6 @@
+import br.lpm.core.BalancoFinal;
 import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
-import br.lpm.service.BalancoFinal;
 import br.lpm.singletons.PedidosSingleton;
 import org.junit.jupiter.api.Test;
 
