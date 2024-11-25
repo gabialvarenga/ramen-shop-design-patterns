@@ -1,7 +1,7 @@
 package br.lpm.types;
 
 import br.lpm.decorators.AcrescimoDecorator;
-import br.lpm.core.Pedido; // Adjust the package name as necessary
+import br.lpm.core.Pedido;
 
 
 public class AcrescimoCremeAlho extends AcrescimoDecorator {
