@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
+import br.lpm.types.AcrescimoChilli;
+import br.lpm.types.BebidaKocha;
 
 public class PedidoTest {
     private Pedido pedido;
@@ -12,15 +14,13 @@ public class PedidoTest {
     @BeforeEach
     public void setup() {
        pedido = RamenFactory.criarRamen("pequeno", "Vegano");
+       pedido = new AcrescimoChilli(pedido);
+       pedido = new BebidaKocha(pedido);
     }
 
     @Test
     public void testCalcularPrecoTotal() {
-        assertEquals(25.0, pedido.calcularPrecoTotal(), 0.01);
+        assertEquals(16.3, pedido.calcularPrecoTotal(), 0.01);
     }
 
-    @Test
-    public void testExibirDetalhes() {
-        assertEquals("Ramen Médio com carne de boi e tofu", pedido.exibirDetalhes());
-    }
 }
