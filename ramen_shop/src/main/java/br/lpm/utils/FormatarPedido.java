@@ -3,7 +3,7 @@ package br.lpm.utils;
 
 import br.lpm.model.Pedido;
 
-public class PedidoFormatter {
+public class FormatarPedido {
     public static String formatarPedido(Pedido pedido) {
         String detalhes = pedido.exibirDetalhes();
         double precoTotal = pedido.calcularPrecoTotal();

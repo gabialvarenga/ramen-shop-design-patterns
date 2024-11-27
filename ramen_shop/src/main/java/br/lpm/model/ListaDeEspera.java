@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;  
 import java.util.Queue;
 
-import br.lpm.utils.PedidoFormatter;  
-import br.lpm.utils.PedidoNotifier;  
+import br.lpm.utils.FormatarPedido;  
+import br.lpm.utils.NotificacaoPedido;;  
 
 public class ListaDeEspera {  
     private static final ListaDeEspera INSTANCE = new ListaDeEspera();  
     private final Queue<Pedido> pedidosEmFila = new LinkedList<>();  
     private final List<Pedido> pedidosConcluidos;  
-    private PedidoNotifier notifier = new PedidoNotifier();   
+    private NotificacaoPedido notifier = new NotificacaoPedido();   
     private int contadorPedidos = 0; 
 
     private ListaDeEspera() {  
@@ -25,7 +25,7 @@ public class ListaDeEspera {
 
     public void adicionarPedido(Pedido pedido) {  
         contadorPedidos++; 
-        System.out.println("Pedido #" + contadorPedidos + " adicionado: " + PedidoFormatter.formatarPedido(pedido));  
+        System.out.println("Pedido #" + contadorPedidos + " adicionado: " + FormatarPedido.formatarPedido(pedido));  
         pedidosEmFila.add(pedido);  
     }  
 
@@ -37,7 +37,7 @@ public class ListaDeEspera {
             int numeroPedido = 1; 
             for (Pedido pedido : pedidosEmFila) {  
                 System.out.println("Pedido #" + numeroPedido + ": " + 
-                PedidoFormatter.formatarPedido(pedido) + " | Preço total: R$ "  
+                FormatarPedido.formatarPedido(pedido) + " | Preço total: R$ "  
                         + String.format("%.2f", pedido.calcularPrecoTotal()));  
                 numeroPedido++;  
             }  
@@ -49,7 +49,7 @@ public class ListaDeEspera {
         if (pedido != null) {  
             pedidosConcluidos.add(pedido);  
             System.out.println("\n=== Preparando o Pedido ===");  
-            System.out.println(PedidoFormatter.formatarPedido(pedido));  
+            System.out.println(FormatarPedido.formatarPedido(pedido));  
             notifier.notificarCliente(pedido); 
         } else {  
             System.out.println("Nenhum pedido na fila.");  
@@ -58,9 +58,9 @@ public class ListaDeEspera {
 
     public void marcarPedidoComoRetirado(Pedido pedido) {  
         if (pedidosConcluidos.contains(pedido)) {  
-            System.out.println("\nPedido já retirado: " + PedidoFormatter.formatarPedido(pedido));  
+            System.out.println("\nPedido já retirado: " + FormatarPedido.formatarPedido(pedido));  
         } else if (removerDaFilaParaConcluido(pedido)) {  
-            System.out.println("\nPedido marcado como retirado: " + PedidoFormatter.formatarPedido(pedido));  
+            System.out.println("\nPedido marcado como retirado: " + FormatarPedido.formatarPedido(pedido));  
         } else {  
             System.out.println("Pedido não encontrado na fila de espera.");  
         }  
@@ -70,7 +70,7 @@ public class ListaDeEspera {
         while (!pedidosEmFila.isEmpty()) {  
             Pedido pedido = pedidosEmFila.poll();  
             pedidosConcluidos.add(pedido);  
-            System.out.println("\nPedido processado: " + PedidoFormatter.formatarPedido(pedido));  
+            System.out.println("\nPedido processado: " + FormatarPedido.formatarPedido(pedido));  
         }  
     }  
 
