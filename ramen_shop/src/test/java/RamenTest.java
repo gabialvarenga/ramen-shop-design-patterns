@@ -1,7 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import br.lpm.core.Ramen;
+
 import br.lpm.factories.RamenFactory;
+import br.lpm.model.Ramen;
 
 class RamenTest {
     @Test

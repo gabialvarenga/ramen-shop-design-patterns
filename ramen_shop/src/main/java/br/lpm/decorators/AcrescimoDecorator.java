@@ -1,6 +1,6 @@
 package br.lpm.decorators;
 
-import br.lpm.core.Pedido;
+import br.lpm.model.Pedido;
 
 public abstract class AcrescimoDecorator implements Pedido{
     private Pedido pedido;

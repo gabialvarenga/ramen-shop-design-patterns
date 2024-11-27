@@ -1,11 +1,9 @@
-package br.lpm.core;
-
-import br.lpm.singletons.PedidosSingleton;
+package br.lpm.model;
 
 public class BalancoFinal {
-    private final PedidosSingleton pedidosSingleton;
+    private final ListaDeEspera pedidosSingleton;
 
-    public BalancoFinal(PedidosSingleton pedidosSingleton) {
+    public BalancoFinal(ListaDeEspera pedidosSingleton) {
         this.pedidosSingleton = pedidosSingleton;
     }
 

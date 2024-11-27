@@ -1,5 +1,5 @@
-import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
+import br.lpm.model.Pedido;
 import br.lpm.types.AcrescimoProteinaExtra;
 import br.lpm.types.AcrescimoShitake;
 

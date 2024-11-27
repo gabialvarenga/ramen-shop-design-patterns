@@ -1,7 +1,7 @@
 package br.lpm.types;
 
-import br.lpm.core.Pedido;
 import br.lpm.decorators.AcrescimoDecorator;
+import br.lpm.model.Pedido;
 
 public class AcrescimoChilli extends AcrescimoDecorator {
      private static final double PRECO = 2.50;

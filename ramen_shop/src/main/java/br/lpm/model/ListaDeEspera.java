@@ -1,26 +1,25 @@
-package br.lpm.singletons;  
+package br.lpm.model;  
 
 import java.util.ArrayList;  
 import java.util.LinkedList;  
 import java.util.List;  
-import java.util.Queue;  
+import java.util.Queue;
 
-import br.lpm.core.Pedido;  
 import br.lpm.utils.PedidoFormatter;  
 import br.lpm.utils.PedidoNotifier;  
 
-public class PedidosSingleton {  
-    private static final PedidosSingleton INSTANCE = new PedidosSingleton();  
+public class ListaDeEspera {  
+    private static final ListaDeEspera INSTANCE = new ListaDeEspera();  
     private final Queue<Pedido> pedidosEmFila = new LinkedList<>();  
     private final List<Pedido> pedidosConcluidos;  
     private PedidoNotifier notifier = new PedidoNotifier();   
     private int contadorPedidos = 0; 
 
-    private PedidosSingleton() {  
+    private ListaDeEspera() {  
         pedidosConcluidos = new ArrayList<>();  
     }  
 
-    public static PedidosSingleton getInstance() {  
+    public static ListaDeEspera getInstance() {  
         return INSTANCE;  
     }  
 

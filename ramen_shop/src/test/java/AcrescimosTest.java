@@ -1,5 +1,5 @@
-import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
+import br.lpm.model.Pedido;
 import br.lpm.types.AcrescimoChilli;
 import br.lpm.types.AcrescimoCremeAlho;
 import br.lpm.types.AcrescimoCroutons;

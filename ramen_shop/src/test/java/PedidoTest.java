@@ -3,8 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
+import br.lpm.model.Pedido;
 import br.lpm.types.AcrescimoChilli;
 import br.lpm.types.AcrescimoKocha;
 

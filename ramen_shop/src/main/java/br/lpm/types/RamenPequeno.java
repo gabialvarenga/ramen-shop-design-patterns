@@ -1,6 +1,6 @@
 package br.lpm.types;
 
-import br.lpm.core.Ramen;
+import br.lpm.model.Ramen;
 
 public class RamenPequeno extends Ramen {
     public RamenPequeno(String proteina){

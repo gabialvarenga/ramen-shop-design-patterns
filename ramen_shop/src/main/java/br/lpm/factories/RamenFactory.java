@@ -1,6 +1,6 @@
 package br.lpm.factories;
 
-import br.lpm.core.Ramen;
+import br.lpm.model.Ramen;
 import br.lpm.types.RamenGrande;
 import br.lpm.types.RamenMedio;
 import br.lpm.types.RamenPequeno;

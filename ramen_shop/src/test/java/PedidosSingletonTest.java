@@ -1,7 +1,7 @@
-import br.lpm.core.Pedido;
-
 import br.lpm.factories.RamenFactory;
-import br.lpm.singletons.PedidosSingleton;
+import br.lpm.model.ListaDeEspera;
+import br.lpm.model.Pedido;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 
 public class PedidosSingletonTest {
-    private PedidosSingleton pedidos;
+    private ListaDeEspera pedidos;
 
     @BeforeEach
     void setUp() {
-        pedidos = PedidosSingleton.getInstance();
+        pedidos = ListaDeEspera.getInstance();
         pedidos.limparPedidos();
     }
 
@@ -66,8 +66,8 @@ public class PedidosSingletonTest {
 
      @Test
     void testUnicidadeDaInstancia() {
-        PedidosSingleton instance1 = PedidosSingleton.getInstance();
-        PedidosSingleton instance2 = PedidosSingleton.getInstance();
+        ListaDeEspera instance1 = ListaDeEspera.getInstance();
+        ListaDeEspera instance2 = ListaDeEspera.getInstance();
         assertSame(instance1, instance2, "A lista de espera deve ser única.");
     }
 

@@ -1,7 +1,7 @@
 package br.lpm.types;
 
-import br.lpm.core.Pedido;
 import br.lpm.decorators.BebidaDecorator;
+import br.lpm.model.Pedido;
 
 public class AcrescimoKocha extends BebidaDecorator {
      private static final double PRECO = 0.00;

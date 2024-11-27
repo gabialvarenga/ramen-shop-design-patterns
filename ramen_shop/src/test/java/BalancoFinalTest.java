@@ -1,7 +1,8 @@
-import br.lpm.core.BalancoFinal;
-import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
-import br.lpm.singletons.PedidosSingleton;
+import br.lpm.model.BalancoFinal;
+import br.lpm.model.ListaDeEspera;
+import br.lpm.model.Pedido;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,12 +11,12 @@ import org.junit.jupiter.api.BeforeEach;
 
 class BalancoFinalTest {
 
-    private PedidosSingleton pedidos;
+    private ListaDeEspera pedidos;
     private BalancoFinal balancoFinal;
 
     @BeforeEach
     void setUp() {
-        pedidos = PedidosSingleton.getInstance();
+        pedidos = ListaDeEspera.getInstance();
         balancoFinal = new BalancoFinal(pedidos);
     }
 

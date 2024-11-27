@@ -1,7 +1,7 @@
 package br.lpm.utils;
 
 
-import br.lpm.core.Pedido;
+import br.lpm.model.Pedido;
 
 public class PedidoFormatter {
     public static String formatarPedido(Pedido pedido) {

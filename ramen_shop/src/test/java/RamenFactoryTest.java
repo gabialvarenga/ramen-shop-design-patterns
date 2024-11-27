@@ -1,5 +1,5 @@
-import br.lpm.core.Ramen;
 import br.lpm.factories.RamenFactory;
+import br.lpm.model.Ramen;
 import br.lpm.types.RamenGrande;
 import br.lpm.types.RamenMedio;
 import br.lpm.types.RamenPequeno;

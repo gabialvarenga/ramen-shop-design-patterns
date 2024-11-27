@@ -1,16 +1,16 @@
 package br.lpm.main;
 
-import br.lpm.core.BalancoFinal;
-import br.lpm.core.Pedido;
 import br.lpm.factories.RamenFactory;
-import br.lpm.singletons.PedidosSingleton;
+import br.lpm.model.BalancoFinal;
+import br.lpm.model.ListaDeEspera;
+import br.lpm.model.Pedido;
 import br.lpm.types.*;
 
 public class Main {
     public static void main(String[] args) {
 
    
-        PedidosSingleton pedidos = PedidosSingleton.getInstance();
+        ListaDeEspera pedidos = ListaDeEspera.getInstance();
 
         // Cria os pedidos
         Pedido pedido1 = RamenFactory.criarRamen("medio", "Boi");
