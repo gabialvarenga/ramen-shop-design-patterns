@@ -1,7 +1,7 @@
 import br.lpm.factories.RamenFactory;
 import br.lpm.model.BalancoFinal;
-import br.lpm.model.ListaDeEspera;
 import br.lpm.model.Pedido;
+import br.lpm.singleton.ListaDeEspera;
 
 import org.junit.jupiter.api.Test;
 
