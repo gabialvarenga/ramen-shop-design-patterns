@@ -1,5 +1,7 @@
 package br.lpm.model;
 
+import br.lpm.singleton.ListaDeEspera;
+
 public class BalancoFinal {
     private final ListaDeEspera pedidosSingleton;
 

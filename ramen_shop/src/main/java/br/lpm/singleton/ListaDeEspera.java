@@ -1,10 +1,11 @@
-package br.lpm.model;  
+package br.lpm.singleton;  
 
 import java.util.ArrayList;  
 import java.util.LinkedList;  
 import java.util.List;  
 import java.util.Queue;
 
+import br.lpm.model.Pedido;
 import br.lpm.utils.FormatarPedido;  
 import br.lpm.utils.NotificacaoPedido;;  
 
