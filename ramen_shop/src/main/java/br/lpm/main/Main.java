@@ -2,8 +2,8 @@ package br.lpm.main;
 
 import br.lpm.factories.RamenFactory;
 import br.lpm.model.BalancoFinal;
-import br.lpm.model.ListaDeEspera;
 import br.lpm.model.Pedido;
+import br.lpm.singleton.ListaDeEspera;
 import br.lpm.types.*;
 
 public class Main {
